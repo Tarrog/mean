@@ -4,15 +4,11 @@ node_js:
 dist: trusty
 services:
   – mongodb
-  – redis-server
 env:
   – NODE_ENV=production PORT=3000 MONGO_URI=mongodb+srv://tests:test1234@cluster0.n6uhb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-cache:
-  directories:
-    – node_modules
-    – client/node_modules
 install:
   – npm install
+  - npm install express mongoose --save
   – npm run build
 script:
   – node index.js
