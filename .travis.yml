@@ -1,15 +1,11 @@
 language: node_js
 node_js:
-  – "8"
+  – "7"
 dist: trusty
 services:
   – mongodb
 env:
-  – NODE_ENV=ci PORT=3000
-cache:
-  directories:
-    – node_modules
-    – client/node_modules
+  – NODE_ENV=product PORT=3000 MONGO_URI=mongodb+srv://tests:test1234@cluster0.n6uhb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 install:
   – npm install express mongoose --save
   – npm run build
